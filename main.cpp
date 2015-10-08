@@ -13,22 +13,70 @@ int strtoi (string str) {
     return output;
 }
 
-int main () {
+int queuePop(queue<int> lista1, int a, int b ){
 
+
+}
+
+int priority_queuePop(priority_queue<int, vector<int>, greater<int>> lista2, int a, int b){
+
+}
+
+int stackPop(stack<int> lista3, int a, int b) {
+    
+}
+
+int main () {
+    int a, b;
+    int res1;
     queue<int> lista1;
     priority_queue<int, vector<int>, greater<int> > lista2;
     stack<int> lista3;
     string d, data;
 
-    // getline(cin, data);
+    getline(cin, data);
 
-    // while (data != '#') {
-    //     stringstream ss;
-    //     ss << data;
-    //     while (ss >> d){
+    while (data != "#") {
+        stringstream ss;
+        ss << data;
+        while (ss >> d) {
+            if (d == "+") {
+                queuePop(lista1, a, b);
+                a = lista1.front();
+                lista1.pop();
+                b = lista1.front();
+                lista1.pop();
+                res1 = a + b;
+            }
 
-    //     }
-    //     getline(cin, data);
-    // }
+            else if (d == "-") {
+                a = lista1.front();
+                lista1.pop();
+                b = lista1.front();
+                lista1.pop();
+                res1 = a - b;
+            }
+            else if (d == "*") {
+                a = lista1.front();
+                lista1.pop();
+                b = lista1.front();
+                lista1.pop();
+                res1 = a * b;
+            }
+            else if (d == "/") {
+                a = lista1.front();
+                lista1.pop();
+                b = lista1.front();
+                lista1.pop();
+                res1 = a / b;
+            }
+            else {
+                lista1.push(strtoi(d));
+            }
+
+        }
+        getline(cin, data);
+    }
+    cout << res1 << endl;
     return 0;
 }
